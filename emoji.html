@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emoji Translator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    /* Additional styles specific to emoji translator */
+    .translation-flash {
+      animation: flash 0.5s;
+    }
+    
+    @keyframes flash {
+      0% { background-color: #ffb347; }
+      100% { background-color: #f8f9fa; }
+    }
+    
+    #translationResult {
+      transition: background-color 0.5s ease;
+    }
+    
+    .emoji-big {
+      font-size: 2rem;
+    }
+    
+    /* Animation delay for history items */
+    #translationHistory li:nth-child(1) { animation-delay: 0.1s; }
+    #translationHistory li:nth-child(2) { animation-delay: 0.2s; }
+    #translationHistory li:nth-child(3) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom px-4">
+    <a class="navbar-brand" href="#">FunSite</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="https://github.com/yourname"><i class="fab fa-github"></i> GitHub</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://linkedin.com/in/yourname"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://twitter.com/yourname"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li class="nav-item"><a class="nav-link" href="mailto:your@email.com"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container-custom">
+    <h1 class="section-title fade-in">Emoji Translator</h1>
+
+    <div class="row justify-content-center slide-up">
+      <div class="col-md-8 text-center mb-4">
+        <p>Type your message and watch as it magically transforms into emojis! 🪄✨</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-4 slide-up" style="animation-delay: 0.2s;">
+      <div class="col-md-8">
+        <div class="card card-custom">
+          <div class="card-body">
+            <div class="mb-3">
+              <label for="inputText" class="form-label">Your Message:</label>
+              <textarea id="inputText" class="form-control" rows="3" placeholder="Type something here..."></textarea>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="onlyEmojiCheck">
+                <label class="form-check-label" for="onlyEmojiCheck">
+                  Only show emojis (hide untranslatable words)
+                </label>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button id="translateBtn" class="btn btn-fun">
+                <span class="me-2">Translate to Emoji</span>
+                ✨
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center slide-up" style="animation-delay: 0.4s;">
+      <div class="col-md-8">
+        <div class="card card-custom">
+          <div class="card-body">
+            <h5 class="card-title">Emoji Translation</h5>
+            <div id="translationResult" class="p-3 bg-light rounded text-center fs-4" style="min-height: 100px;">
+              Your translation will appear here 👀
+            </div>
+            <div class="text-center mt-3">
+              <button id="copyBtn" class="btn btn-sm btn-outline-secondary">
+                <span class="me-1">Copy</span>
+                📋
+              </button>
+              <button id="shareBtn" class="btn btn-sm btn-outline-primary ms-2">
+                <span class="me-1">Share</span>
+                🔗
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-4 slide-up" style="animation-delay: 0.6s;">
+      <div class="col-md-8">
+        <div class="card card-custom">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="card-title mb-0">Translation History</h5>
+              <button id="clearHistoryBtn" class="btn btn-sm btn-outline-danger">
+                <span class="me-1">Clear History</span>
+                🗑️
+              </button>
+            </div>
+            <div id="historyContainer">
+              <ul id="translationHistory" class="list-group list-group-flush">
+                <!-- History entries will be added here -->
+              </ul>
+              <p class="text-center text-muted">Your translation history will appear here...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-4 slide-up" style="animation-delay: 0.8s;">
+      <div class="col-md-8">
+        <div class="card card-custom">
+          <div class="card-body">
+            <h5 class="card-title">Fun Facts About Emojis</h5>
+            <div class="accordion" id="emojiFacts">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#factOne">
+                    Origin of Emojis
+                  </button>
+                </h2>
+                <div id="factOne" class="accordion-collapse collapse" data-bs-parent="#emojiFacts">
+                  <div class="accordion-body">
+                    The word "emoji" comes from Japanese "e" (絵, "picture") + "moji" (文字, "character"). 
+                    Emojis originated in Japan in the late 1990s but became globally popular in the 2010s! 🌍
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#factTwo">
+                    World Emoji Day
+                  </button>
+                </h2>
+                <div id="factTwo" class="accordion-collapse collapse" data-bs-parent="#emojiFacts">
+                  <div class="accordion-body">
+                    World Emoji Day is celebrated on July 17 each year. The date was chosen because it's the date that appears on the calendar emoji on many devices! 📅
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#factThree">
+                    Most Popular Emoji
+                  </button>
+                </h2>
+                <div id="factThree" class="accordion-collapse collapse" data-bs-parent="#emojiFacts">
+                  <div class="accordion-body">
+                    The "Face with Tears of Joy" 😂 is consistently ranked as the most used emoji worldwide, representing laughter and happiness in digital communications!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/emojidata.js"></script>
+  <script src="js/emoji.js"></script>
+</body>
+</html>
