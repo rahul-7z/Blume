@@ -43,8 +43,8 @@ const phonetics = {
     fact: 'The "H" is silent due to French influence. An heir is a person legally entitled to the property or rank of another on that person\'s death.' 
   },
   I: { 
-    word: 'Eye', 
-    image: 'assets/images/phonetic/eye.jpg', 
+    word: 'I is not for Eye', 
+    image: 'assets/images/phonetic/aye-aye.webp', 
     fact: 'I is not for Eye. We asked the pirate if he has two eyes, and he said, "aye-aye"' 
   },
   J: { 
