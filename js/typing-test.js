@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Test sentences by difficulty
     const testSentences = {
       easy: [
-        "The quick brown fox jumps over the lazy dog.",
-        "A journey of a thousand miles begins with a single step.",
-        "All that glitters is not gold, but it's still pretty shiny.",
-        "Don't count your chickens before they hatch, especially if you don't have chickens.",
-        "Early bird gets the worm, but the second mouse gets the cheese."
+        "the quick brown fox jumps over the lazy dog",
+        "a journey of a thousand miles begins with a single step",
+        "all that glitters is not gold but it's still pretty shiny",
+        "do not count your chickens before they hatch especially if you don't have chickens",
+        "early bird gets the worm but the second mouse gets the cheese"
       ],
       medium: [
         "Pack my box with five dozen liquor jugs. How quickly daft jumping zebras vex!",
