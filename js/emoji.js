@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navigator.clipboard.writeText(text)
           .then(() => {
             const originalText = copyBtn.innerHTML;
-            copyBtn.innerHTML = 'Copied! ✅';
+            copyBtn.innerHTML = 'Copied!';
             setTimeout(() => {
               copyBtn.innerHTML = originalText;
             }, 2000);
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
           navigator.clipboard.writeText(text)
             .then(() => {
               const originalText = shareBtn.innerHTML;
-              shareBtn.innerHTML = 'Copied for sharing! ✅';
+              shareBtn.innerHTML = 'Copied for sharing!';
               setTimeout(() => {
                 shareBtn.innerHTML = originalText;
               }, 2000);
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
       localStorage.removeItem('emojiTranslationHistory');
       
       const originalText = clearHistoryBtn.textContent;
-      clearHistoryBtn.textContent = 'History Cleared! ✅';
+      clearHistoryBtn.textContent = 'History Cleared!';
       setTimeout(() => {
         clearHistoryBtn.textContent = originalText;
       }, 2000);
